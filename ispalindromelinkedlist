@@ -1,0 +1,28 @@
+bool isPalindrome(struct ListNode* head){
+     struct ListNode*slow=head;
+    struct ListNode* fast=head;
+    while(fast->next!=NULL && fast->next->next!=NULL)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+     struct ListNode*prev=NULL;
+    struct ListNode*current=head;
+    struct ListNode*next=NULL;
+    while(current != NULL){
+        next=current->next;//store the next
+        current->next=prev;//reverse the direction of linked list
+        //aheading the pointers
+        prev=current;
+        current=next;
+    }
+    fast=head;
+    while(prev!=NULL && fast!=NULL){
+        if(fast->val!=prev->val)
+            return false;
+        prev=prev->next;
+        fast=fast->next;
+    }
+    return true;
+
+}
