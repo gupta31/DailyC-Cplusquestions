@@ -1,0 +1,24 @@
+void my_sort(){
+    node *temp;
+    node *t = NULL;
+    temp=head;
+
+    while(temp !=NULL){
+        t=temp->next;
+        while(t!=NULL){
+          if(temp->val >t->val)
+          {
+            int sort;
+            sort=temp->val;
+            temp->val=t->val;
+            t->val=sort;
+          }
+          t=t->next;
+        }
+
+        temp=temp->next;
+
+    }
+
+
+}
