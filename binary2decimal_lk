@@ -1,0 +1,10 @@
+
+int getDecimalValue(struct ListNode* head){
+    int num=head->val;
+    while(head->next!=NULL){
+        num=num*2+head->next->val;
+        head=head->next;
+    }
+    return num;
+
+}
